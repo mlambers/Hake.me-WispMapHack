@@ -21,7 +21,9 @@ function WispMaphack.OnParticleUpdateEntity(particle)
     if MyHero == nil then return end
     
     if
-        Entity.GetClassName(particle.entity) == 'C_DOTA_Unit_Hero_Wisp'
+        particle.entity
+        and particle.position
+        and Entity.GetClassName(particle.entity) == 'C_DOTA_Unit_Hero_Wisp'
         and Entity.IsSameTeam(MyHero, particle.entity) == false 
         and (
             Entity.IsDormant(particle.entity)
